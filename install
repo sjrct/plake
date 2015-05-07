@@ -1,0 +1,43 @@
+#!/bin/sh
+#
+# This program installs plake to your system
+#
+# Usage:
+#  ./install [/path/to/bin] [/path/to/install/destination]
+#
+# Make sure the bin path (the first argument is in your path and the path the
+# installation directory is set to the environment variable PLAKE_DIR if it is
+# something other than the default
+#
+
+set -e
+
+# Get the install paths
+if [ -z $1 ] ; then
+    BIN=$1
+else
+    BIN=/usr/bin
+fi
+
+if [ -z $2 ] ; then
+    DEST=$2
+else
+    DEST=/opt/plake
+fi
+
+# Confirm we have not installed something already
+if [ -e $BIN/plake ] ; then
+    echo Plake is already installed!
+    exit -1
+fi
+
+if [ -e $BIN/plakeify ] ; then
+    echo Plakeify is already installed!
+    exit -1
+fi
+
+# Do the installation
+set -x
+
+cp -r plake/ $DEST
+cp plakeify $BIN
