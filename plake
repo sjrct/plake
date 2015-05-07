@@ -1,0 +1,23 @@
+#!/bin/sh
+
+set -e
+
+VERB=build
+TARGET=all
+
+if [ ! -z $1 ] ; then
+  VERB=$1
+fi
+
+if [ ! -z $2 ] ; then
+  TARGET=$2
+fi
+
+if [ -z $PLAKE_DIR ] ; then
+  PLAKE_DIR=`pwd`/src
+fi
+
+swipl \
+    -s $PLAKE_DIR/plake.pl \
+    -q -t true \
+    -g "plake_main(${VERB}, ${TARGET})"
