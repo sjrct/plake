@@ -14,7 +14,7 @@ if [ ! -z $2 ] ; then
 fi
 
 if [ -z $PLAKE_DIR ] ; then
-  PLAKE_DIR=`pwd`/src
+  PLAKE_DIR=/opt/plake
 fi
 
 swipl \
