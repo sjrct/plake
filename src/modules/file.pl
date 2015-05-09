@@ -1,5 +1,5 @@
 %
-% posix.pl
+% modules/file.pl
 %
 
 :- module(plake_file, [ c_rm/2, c_cat/3, r_cat/3 ]).
