@@ -1,5 +1,0 @@
-%
-% builtins.pl
-%
-
-:- [builtins/file].

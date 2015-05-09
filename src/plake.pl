@@ -2,7 +2,12 @@
 % plake.pl
 %
 
-:- [util, builtins].
+% Tell prolog where to load plake modules from
+:- prolog_load_context(directory, PlakeDir),
+   atom_concat(PlakeDir, '/modules', ModuleDir),
+   assert(file_search_path(plake, ModuleDir)).
+
+:- [util].
 :- [plakefile].
 
 % Verb should succeed if target not dirty
